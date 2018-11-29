@@ -23,15 +23,35 @@ var questions = [{
 
 var currentQuestion = 0;
 var correctAnswers = 0;
+var i = 0;
 var quizOver = false;
 displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
     /*Write your code here */
+    currentQuestion++;
+    if(currentQuestion==questions.length)
+    {
+        currentQuestion = 0;
+    }
+    displayCurrentQuestion();
 }
 
 function displayCurrentQuestion() {
     /*Write your code here */
+   // document.getElementById("question").innerHTML = questions[currentQuestion].question;
+   var q = document.getElementById("question");
+   var c = document.getElementById("choice-list");
+    var j = 0;
+       q.innerText= questions[currentQuestion].question;
+       c.innerHTML="";
+    for(j=0; j<questions[currentQuestion].choices.length; j++)
+    {
+        c.innerHTML += '<li><input type="radio">'  + questions[currentQuestion].choices[j] +'</li>';
+
+    }
+
+
 }
 
 function resetQuiz() {
